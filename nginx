@@ -27,19 +27,19 @@ set -e
 
 case "$1" in
    start)
-         echo -n "Starting $DESC: "
+         echo -n "Iniciando $DESC: "
          start-stop-daemon --start --quiet --pidfile /var/run/$NAME.pid \
                  --exec $DAEMON -- $DAEMON_OPTS
          echo "$NAME."
          ;;
  stop)
-         echo -n "Stopping $DESC: "
+         echo -n "Parando $DESC: "
          start-stop-daemon --stop --quiet --pidfile /var/run/$NAME.pid \
                  --exec $DAEMON
          echo "$NAME."
          ;;
  restart|force-reload)
-         echo -n "Restarting $DESC: "
+         echo -n "Reiniciando $DESC: "
          start-stop-daemon --stop --quiet --pidfile \
                  /var/run/$NAME.pid --exec $DAEMON
          sleep 1
@@ -48,7 +48,7 @@ case "$1" in
          echo "$NAME."
          ;;
  reload)
-       echo -n "Reloading $DESC configuration: "
+       echo -n "Recarregando $DESC configuration: "
        start-stop-daemon --stop --signal HUP --quiet --pidfile /var/run/$NAME.pid \
            --exec $DAEMON
        echo "$NAME."
